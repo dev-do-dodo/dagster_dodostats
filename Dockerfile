@@ -10,6 +10,6 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-WORKDIR /iris_analysis/
+WORKDIR /upload_dodostats/
 
 EXPOSE 80
