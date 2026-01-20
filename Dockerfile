@@ -1,15 +1,19 @@
-FROM python:3.11
+FROM python:3.11-slim
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt/dagster/app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /
 
-ENV PYTHONUNBUFFERED=1
+ENV DAGSTER_HOME=/opt/dagster/dagster_home
 
-RUN pip install --upgrade pip
+EXPOSE 4000
 
-COPY requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-WORKDIR /upload_dodostats/
-
-EXPOSE 80
+CMD ["dagster", "api", "grpc", "-h", "0.0.0.0", "-p", "4000", "-m", "defs"]
