@@ -1,0 +1,11 @@
+*
+
+!Dockerfile
+!requirements.txt
+!defs.py
+!connection.py
+!config.py
+!current_information/
+!current_revenue/
+!database/
+!operational_revenue/

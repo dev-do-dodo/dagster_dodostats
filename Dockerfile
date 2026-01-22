@@ -10,7 +10,7 @@ WORKDIR /opt/dagster/app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /
+COPY . .
 
 ENV DAGSTER_HOME=/opt/dagster/dagster_home
 
