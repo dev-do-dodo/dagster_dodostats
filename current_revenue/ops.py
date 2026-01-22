@@ -49,4 +49,3 @@ async def current_revenue_op(context: OpExecutionContext):
             except Exception:
                 pass
         await session.commit()
-    context.log.info(f"end - {datetime.now()}")

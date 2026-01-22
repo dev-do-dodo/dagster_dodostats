@@ -148,4 +148,3 @@ async def operational_revenue_op(context: OpExecutionContext):
             )
             await session.execute(stmt)
         await session.commit()
-    context.log.info(f'end - {datetime.now()}')

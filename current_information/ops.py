@@ -137,4 +137,3 @@ async def check_updates_op(context: OpExecutionContext):
                         )
                         session.add(working)
         await session.commit()
-    context.log.info(f"end - {datetime.now()}")
